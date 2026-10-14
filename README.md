@@ -16,7 +16,7 @@ rol ayrımı, program kuralları (1 TL = 1 puan, 200 puan = %5, günde 1 kez, SM
 | 1 | Tanıtım sitesi, kayıt, giriş, rol yönlendirmesi | ✅ |
 | 1.5 | Eski prototipten veri, marka ve rol aktarımı | ✅ |
 | 1.6 | 5 mağazalık pilot (program yalnızca pilot mağazalarda), KVKK hesap silme | ✅ |
-| 2 | Müşteri paneli: gerçek QR, puan geçmişi, favori mağaza/ürün, ürün kataloğu | ⏳ |
+| 2 | Müşteri paneli: gerçek QR, puan geçmişi, favori mağaza (il kartları, arama, yakınımda), ürün kataloğu ve favoriler, hesap ve iletişim izni | ✅ |
 | 3 | Kasa ekranı: QR/numara ile puan kazandırma, SMS koduyla puan kullandırma | ⏳ |
 | 4 | Müdür ve Genel Merkez: raporlar, duyuru/indirim onay akışı, bildirimler, ayarlar | ⏳ |
 | 5 | Canlıya hazırlık: gerçek SMS firması, dinamik QR, KVKK metinleri | ⏳ |

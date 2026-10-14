@@ -5,7 +5,7 @@ import AnaSayfa from './sayfalar/AnaSayfa.jsx';
 import Giris from './sayfalar/Giris.jsx';
 import Kayit from './sayfalar/Kayit.jsx';
 import Kvkk from './sayfalar/Kvkk.jsx';
-import MusteriPaneli from './sayfalar/MusteriPaneli.jsx';
+import MusteriPaneli from './sayfalar/musteri/MusteriPaneli.jsx';
 import KasaPaneli from './sayfalar/KasaPaneli.jsx';
 import MagazaPaneli from './sayfalar/MagazaPaneli.jsx';
 import YonetimPaneli from './sayfalar/YonetimPaneli.jsx';

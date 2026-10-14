@@ -54,7 +54,7 @@ export function Alt() {
 
 const ROL_ADI = { musteri: 'Üye', kasiyer: 'Kasiyer', mudur: 'Mağaza müdürü', yonetici: 'Genel Merkez' };
 
-export function PanelCercevesi({ baslik, children }) {
+export function PanelCercevesi({ baslik, ust, children }) {
   const { kullanici, cikis } = useOturum();
   const git = useNavigate();
   return (
@@ -77,8 +77,9 @@ export function PanelCercevesi({ baslik, children }) {
           </button>
         </div>
       </header>
+      {ust}
       <main className="kap panel__govde">
-        <h1 className="panel__baslik">{baslik}</h1>
+        {baslik && <h1 className="panel__baslik">{baslik}</h1>}
         {children}
       </main>
     </div>
