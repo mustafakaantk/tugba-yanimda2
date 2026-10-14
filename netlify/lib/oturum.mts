@@ -22,7 +22,8 @@ const SURE: Record<Rol, number> = {
 let anahtarOnbellek: Uint8Array | null = null;
 async function anahtar(): Promise<Uint8Array> {
   if (anahtarOnbellek) return anahtarOnbellek;
-  const ortam = (globalThis as any).Netlify?.env?.get?.('JWT_SECRET') ?? process.env.JWT_SECRET;
+  const ortam = (globalThis as any).Netlify?.env?.get?.('JWT_SECRET')
+    ?? (typeof process !== 'undefined' ? process.env?.JWT_SECRET : undefined);
   let gizli = ortam as string | undefined;
   if (!gizli) {
     const s = await tekSatir<{ deger: string }>("SELECT deger FROM sistem_anahtarlari WHERE anahtar = 'oturum_anahtari'");

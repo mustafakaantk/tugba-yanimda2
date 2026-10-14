@@ -3,3 +3,6 @@ dist/
 .netlify/
 .env
 .DS_Store
+.dev.vars
+.wrangler/
+netlify/lib/migrasyonlar.generated.mjs

@@ -1,8 +1,7 @@
 // POST /api/kayit – yeni müşteri üyeliği
 // Kullanıcı + müşteri profili + kişisel QR + hoş geldin puanı tek işlemde oluşturulur.
 import type { Config } from '@netlify/functions';
-import bcrypt from 'bcryptjs';
-import { createHash, randomInt } from 'node:crypto';
+import { createHash } from 'node:crypto';
 import { islem, tekSatir } from '../lib/db.mts';
 import { oturumAc, PANEL } from '../lib/oturum.mts';
 import { guvenli, govde, json, kaydet, metin, telefonDuzelt, UygulamaHatasi } from '../lib/yardimci.mts';
@@ -10,7 +9,7 @@ import { guvenli, govde, json, kaydet, metin, telefonDuzelt, UygulamaHatasi } fr
 const ALFABE = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // karışan karakterler (0/O, 1/I) yok
 // Telefonun geri çevrilemeyen özeti (migration 4 ile aynı formül)
 const telefonOzeti = (t: string) => createHash('sha256').update(`tugba-yanimda:${t}`, 'utf8').digest('hex');
-const qrKoduUret = () => 'TY-' + Array.from({ length: 10 }, () => ALFABE[randomInt(ALFABE.length)]).join('');
+const qrKoduUret = () => 'TY-' + Array.from(crypto.getRandomValues(new Uint32Array(10)), (n) => ALFABE[n % ALFABE.length]).join('');
 
 interface KayitIstegi {
   ad?: string; soyad?: string; telefon?: string; sifre?: string;
@@ -51,12 +50,11 @@ export default guvenli(async (req) => {
     if (!mg) throw new UygulamaHatasi(400, 'Seçilen mağaza programa dahil değil.');
   }
 
-  const sifreHash = await bcrypt.hash(sifre, 10);
-
   const yeni = await islem(async (s) => {
     const [k] = await s(
-      `INSERT INTO kullanicilar (rol, telefon, sifre_hash, ad, soyad) VALUES ('musteri', $1, $2, $3, $4) RETURNING id`,
-      [telefon, sifreHash, ad, soyad]);
+      `INSERT INTO kullanicilar (rol, telefon, sifre_hash, ad, soyad)
+       VALUES ('musteri', $1, crypt($2, gen_salt('bf', 10)), $3, $4) RETURNING id`,
+      [telefon, sifre, ad, soyad]);
     let qr = qrKoduUret();
     for (let i = 0; i < 5; i++) {
       const [var_] = await s('SELECT 1 FROM musteriler WHERE qr_kodu = $1', [qr]);

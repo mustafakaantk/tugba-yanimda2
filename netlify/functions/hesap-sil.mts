@@ -7,8 +7,6 @@
 //  - Satış kayıtları muhasebe/yasal saklama için KİMLİKSİZ olarak kalır.
 //  - Aynı telefon numarasıyla daha sonra yeniden üye olunabilir (yeni, sıfır puanlı hesap).
 import type { Config } from '@netlify/functions';
-import bcrypt from 'bcryptjs';
-import { randomBytes } from 'node:crypto';
 import { islem, tekSatir } from '../lib/db.mts';
 import { oturumKapat, yetkiIste } from '../lib/oturum.mts';
 import { guvenli, govde, json, kaydet, UygulamaHatasi } from '../lib/yardimci.mts';
@@ -18,9 +16,9 @@ export default guvenli(async (req) => {
   const { sifre } = await govde<{ sifre?: string }>(req);
   if (typeof sifre !== 'string' || !sifre) throw new UygulamaHatasi(400, 'Onay için şifreni gir.');
 
-  const k = await tekSatir<{ sifre_hash: string; telefon: string | null }>(
-    'SELECT sifre_hash, telefon FROM kullanicilar WHERE id = $1', [o.id]);
-  if (!k || !(await bcrypt.compare(sifre, k.sifre_hash))) {
+  const k = await tekSatir<{ dogru: boolean; telefon: string | null }>(
+    'SELECT (sifre_hash = crypt($2, sifre_hash)) AS dogru, telefon FROM kullanicilar WHERE id = $1', [o.id, sifre]);
+  if (!k || !k.dogru) {
     throw new UygulamaHatasi(401, 'Şifre hatalı. Hesabın silinmedi.');
   }
 
@@ -43,9 +41,9 @@ export default guvenli(async (req) => {
     await s(
       `UPDATE kullanicilar
           SET telefon = NULL, kullanici_adi = 'silindi-' || id, ad = 'Silinmiş', soyad = 'Üye',
-              sifre_hash = $2, durum = 'pasif', silinme_tarihi = NOW()
+              sifre_hash = crypt(gen_random_uuid()::text, gen_salt('bf', 10)), durum = 'pasif', silinme_tarihi = NOW()
         WHERE id = $1`,
-      [o.id, await bcrypt.hash(randomBytes(24).toString('hex'), 10)]);
+      [o.id]);
     if (k.telefon) await s('UPDATE islem_kayitlari SET hedef = NULL WHERE hedef = $1', [k.telefon]);
     return bakiye.puan as number;
   });

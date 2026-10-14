@@ -48,7 +48,7 @@ export function telefonDuzelt(girdi: unknown): string | null {
 }
 
 export function ipAdresi(req: Request) {
-  return req.headers.get('x-nf-client-connection-ip') || req.headers.get('x-forwarded-for')?.split(',')[0].trim() || null;
+  return req.headers.get('cf-connecting-ip') || req.headers.get('x-nf-client-connection-ip') || req.headers.get('x-forwarded-for')?.split(',')[0].trim() || null;
 }
 
 /** Denetim izi: kim, ne yaptı. Kayıt hatası asıl işlemi bozmaz. */

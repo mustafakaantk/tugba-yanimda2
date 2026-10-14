@@ -1,0 +1,6 @@
+# Cloudflare Pages ayarları
+# Derleme komutu ve DATABASE_URL Cloudflare panelinden girilir (bkz. README – Cloudflare kurulumu).
+name = "tugba-yanimda"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-09-01"
+compatibility_flags = ["nodejs_compat"]

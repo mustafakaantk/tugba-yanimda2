@@ -69,6 +69,29 @@ scripts/
 - Rol kontrolü her API isteğinde sunucuda yapılır (`yetkiIste(req, 'yonetici')`).
 - Program kuralları (`ayarlar` tablosu) koda gömülü değildir; tanıtım sitesi kuralları API'den okur.
 
+## Yayın: Cloudflare Pages + Neon (ücretsiz)
+
+Site **Cloudflare Pages**'te, veritabanı **Neon**'da (Postgres) çalışır. Kod Netlify ile de uyumludur
+(`netlify.toml`, `netlify/functions` duruyor); Netlify'a dönmek için orada yayın başlatmak yeterli.
+
+| Ayar (Cloudflare → proje → Settings) | Değer |
+|---|---|
+| Build command | `npm run build:cloudflare` |
+| Build output directory | `dist` |
+| Ortam değişkeni (Secret) | `DATABASE_URL` = Neon bağlantı adresi (pooled) |
+| Ortam değişkeni (isteğe bağlı) | `JWT_SECRET` = uzun rastgele metin; yoksa veritabanındaki anahtar kullanılır |
+
+Uyumluluk ayarları (`nodejs_compat`) `wrangler.toml` dosyasında.
+
+**Nasıl çalışır?**
+- `functions/api/[[yol]].ts`: Cloudflare'e gelen `/api/*` isteklerini `netlify/functions/*.mts` içindeki
+  aynı fonksiyonlara yönlendirir. **Yeni bir API eklenince bu dosyadaki listeye de eklenmeli.**
+- Migration'lar iki yerden uygulanır (aynı `_migrasyonlar` tablosu, çakışmaz):
+  1. Derlemede `scripts/migrate.mjs` (DATABASE_URL derlemede görünüyorsa),
+  2. Sitenin ilk isteğinde, fonksiyonlara gömülü paket (`scripts/migrasyon-paketle.mjs`).
+- Şifreler veritabanında `pgcrypto` ile (bcrypt biçimi) kontrol edilir; Cloudflare'in ücretsiz
+  planındaki ~10 ms işlemci sınırına takılmamak için.
+
 ## Yerelde çalıştırma (isteğe bağlı)
 
 ```bash

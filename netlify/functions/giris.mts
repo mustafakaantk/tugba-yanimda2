@@ -1,7 +1,6 @@
 // POST /api/giris  { kimlik: "telefon veya kullanıcı adı", sifre }
 // Rolü veritabanından okur ve hangi panelin açılacağını döndürür.
 import type { Config } from '@netlify/functions';
-import bcrypt from 'bcryptjs';
 import { sorgu, tekSatir } from '../lib/db.mts';
 import { oturumAc, PANEL, type Rol } from '../lib/oturum.mts';
 import { guvenli, govde, json, kaydet, metin, telefonDuzelt, UygulamaHatasi } from '../lib/yardimci.mts';
@@ -28,17 +27,19 @@ export default guvenli(async (req) => {
     throw new UygulamaHatasi(429, `Çok fazla hatalı deneme. ${KILIT_DAKIKA} dakika sonra tekrar deneyin.`);
   }
 
+  // Şifre kontrolü veritabanında yapılır (pgcrypto crypt, bcrypt biçimi)
   const k = await tekSatir<{
-    id: number; rol: Rol; sifre_hash: string; durum: string; ad: string; soyad: string;
+    id: number; rol: Rol; dogru: boolean; durum: string; ad: string; soyad: string;
     magaza_id: number | null; magaza_adi: string | null; program_aktif: boolean | null;
   }>(
-    `SELECT k.id, k.rol, k.sifre_hash, k.durum, k.ad, k.soyad, k.magaza_id, m.ad AS magaza_adi, m.program_aktif
+    `SELECT k.id, k.rol, (k.sifre_hash = crypt($2, k.sifre_hash)) AS dogru, k.durum, k.ad, k.soyad, k.magaza_id, m.ad AS magaza_adi, m.program_aktif
        FROM kullanicilar k LEFT JOIN magazalar m ON m.id = k.magaza_id
       WHERE ${telefon ? 'k.telefon = $1' : 'LOWER(k.kullanici_adi) = $1'}`,
-    [hedef]);
+    [hedef, sifre]);
 
-  const dogru = k ? await bcrypt.compare(sifre, k.sifre_hash) : await bcrypt.compare(sifre, SAHTE_HASH); // kullanıcı yoksa da aynı sürede yanıt ver
-  if (!k || !dogru) {
+  // Kullanıcı yoksa da aynı sürede yanıt ver (hesap var mı yok mu anlaşılmasın)
+  if (!k) await tekSatir('SELECT crypt($1, $2)', [sifre, SAHTE_HASH]);
+  if (!k || !k.dogru) {
     await kaydet('giris_hatali', { hedef, req });
     throw new UygulamaHatasi(401, 'Bilgiler hatalı. Lütfen kontrol edip tekrar deneyin.');
   }
