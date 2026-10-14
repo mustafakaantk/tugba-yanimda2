@@ -1,22 +1,19 @@
 import { PanelCercevesi } from '../bilesenler.jsx';
 import { useOturum } from '../oturum.jsx';
 
-// Faz 1: iskelet. QR okutma ve satış ekranı Faz 3'te eklenecek.
+// Mağaza müdürü paneli – Faz 1 iskeleti. Raporlar, duyuru ve indirim önerileri Faz 4'te.
 export default function MagazaPaneli() {
   const { kullanici } = useOturum();
   return (
-    <PanelCercevesi baslik="Satış ekranı">
+    <PanelCercevesi baslik="Mağaza paneli">
       <section className="yer-tutucu">
         <h2>{kullanici.magazaAdi}</h2>
-        <p>
-          Bu ekranda müşterinin QR kodunu kamerayla okutup satış tutarını gireceksin; puan otomatik yüklenecek.
-          Satış ekranı Faz 3’te devreye alınacak.
-        </p>
-        <ol>
-          <li>Müşterinin QR kodunu okut ya da telefon numarasını yaz</li>
-          <li>Satış tutarını gir, varsa kuponu uygula</li>
-          <li>Satışı tamamla; puan anında hesaba geçsin</li>
-        </ol>
+        <p>Bu panel Faz 4’te devreye alınacak. Mağaza müdürü buradan:</p>
+        <ul>
+          <li>Mağazanın günlük satış ve puan hareketlerini izleyecek, hatalı işlemleri iptal edecek</li>
+          <li>Takipçilerine duyuru (ikram, tadım günü) ve ürün indirimi önerecek; öneriler Genel Merkez onayından sonra yayınlanacak</li>
+          <li>Kasiyer hesaplarını yönetecek</li>
+        </ul>
       </section>
     </PanelCercevesi>
   );

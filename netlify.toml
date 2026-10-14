@@ -34,6 +34,14 @@
   to = "/index.html"
   status = 200
 [[redirects]]
+  from = "/kasa"
+  to = "/index.html"
+  status = 200
+[[redirects]]
+  from = "/kasa/*"
+  to = "/index.html"
+  status = 200
+[[redirects]]
   from = "/magaza"
   to = "/index.html"
   status = 200

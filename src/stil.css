@@ -1,20 +1,21 @@
 /* =====================================================================
    Tuğba Yanımda – görsel dil
-   Renkler kuruyemiş/baharat dükkânından: sumak kırmızısı, safran sarısı,
-   fıstık yeşili, kavrulmuş fındık kahvesi. Marka renkleri netleşince yalnızca
-   aşağıdaki değişkenleri değiştirmek yeterli.
+   Tuğba Kuruyemiş marka paleti (eski Tuğba Yanımda prototipiyle aynı):
+   Tuğba bordosu, krem zemin, kavrulmuş fındık kahvesi ve puanlar için safran.
+   Değişken adları ilk taslaktan kaldı; renk değiştirmek için yalnızca
+   aşağıdaki değerleri güncellemek yeterli.
    ===================================================================== */
 :root {
-  --sumak: #8e2b26;
-  --sumak-koyu: #6c1f1b;
-  --safran: #f2b33d;
-  --safran-acik: #fbe7b8;
-  --fistik: #e3ead0;
-  --fistik-koyu: #4f6224;
-  --findik: #2b1a12;
-  --findik-orta: #6b574a;
-  --zemin: #ffffff;
-  --cizgi: #e6e1d8;
+  --sumak: #a10046;        /* Tuğba bordosu – ana renk */
+  --sumak-koyu: #7e0036;
+  --safran: #f2b33d;       /* puanlar */
+  --safran-acik: #f6e7cc;
+  --fistik: #f2e8d8;       /* krem bölüm zemini */
+  --fistik-koyu: #94600f;  /* fındık kahvesi */
+  --findik: #2e1519;       /* metin */
+  --findik-orta: #6f5a55;
+  --zemin: #fffcf6;
+  --cizgi: #e3d3be;
   --hata: #b3261e;
   --basari: #3d6b21;
 
@@ -69,16 +70,13 @@ img, svg { display: block; max-width: 100%; }
 .dugme--hayalet:hover { background: rgba(255,255,255,.12); border-color: #fff; }
 
 /* ---------- logo ---------- */
-.logo { display: inline-flex; align-items: center; gap: .55rem; text-decoration: none; color: var(--sumak); }
-.logo svg { width: 34px; height: 34px; }
-.logo span { font: 500 1.15rem/1 var(--yazi-baslik); color: var(--findik); letter-spacing: -0.01em; }
-.logo strong { font-weight: 800; }
-.logo--acik { color: #fff; }
-.logo--acik svg { color: rgba(255,255,255,.18); }
+.logo { display: inline-flex; align-items: center; gap: .45rem; text-decoration: none; }
+.logo img { height: 40px; width: auto; }
+.logo span { font: 800 1.3rem/1 var(--yazi-baslik); color: var(--sumak); letter-spacing: -0.02em; }
 .logo--acik span { color: #fff; }
 
 /* ---------- üst menü ---------- */
-.ust { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--cizgi); }
+.ust { position: sticky; top: 0; z-index: 10; background: rgba(255,252,246,.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--cizgi); }
 .ust__ic { display: flex; align-items: center; justify-content: space-between; min-height: 68px; gap: 1rem; }
 .ust__nav { display: flex; align-items: center; gap: 1.4rem; }
 .ust__nav a:not(.dugme) { color: var(--findik); text-decoration: none; font-weight: 500; font-size: .9375rem; }
@@ -106,7 +104,7 @@ img, svg { display: block; max-width: 100%; }
 .uye-kart {
   width: min(100%, 330px); aspect-ratio: 0.63; background: var(--sumak); color: #fff; border-radius: var(--r-kart);
   padding: 1.4rem 1.4rem 1.2rem; display: flex; flex-direction: column; gap: 1rem;
-  box-shadow: 0 30px 60px -28px rgba(108, 31, 27, .65);
+  box-shadow: 0 30px 60px -28px rgba(126, 0, 54, .6);
   background-image:
     radial-gradient(circle at 105% -5%, rgba(242,179,61,.45), transparent 55%),
     radial-gradient(circle at -10% 110%, rgba(0,0,0,.22), transparent 55%);
@@ -152,7 +150,7 @@ img, svg { display: block; max-width: 100%; }
 .hesap__etiket output { font: 800 1.5rem/1 var(--yazi-baslik); color: var(--sumak); margin-left: .25rem; }
 .hesap__kaydirici { width: 100%; accent-color: var(--sumak); height: 2rem; }
 .hesap__sonuc { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin: 0; background: var(--fistik-koyu); border-radius: var(--r-orta); overflow: hidden; border: 1px solid var(--fistik-koyu); }
-.hesap__sonuc div { background: #fff; padding: 1.2rem 1.25rem; }
+.hesap__sonuc div { background: var(--zemin); padding: 1.2rem 1.25rem; }
 .hesap__sonuc dt { font-size: .875rem; color: var(--findik-orta); }
 .hesap__sonuc dd { margin: .2rem 0 0; font: 800 clamp(1.5rem, 3vw, 2rem)/1.1 var(--yazi-baslik); }
 @media (max-width: 760px) { .hesap { grid-template-columns: 1fr; } }
@@ -207,7 +205,7 @@ img, svg { display: block; max-width: 100%; }
 .alan input, .alan select {
   font: inherit; padding: .75rem .9rem; border: 1.5px solid #cfc8bb; border-radius: var(--r-kucuk); background: #fff; color: var(--findik); width: 100%;
 }
-.alan input:focus, .alan select:focus { outline: none; border-color: var(--sumak); box-shadow: 0 0 0 3px rgba(142,43,38,.15); }
+.alan input:focus, .alan select:focus { outline: none; border-color: var(--sumak); box-shadow: 0 0 0 3px rgba(161,0,70,.15); }
 .onay { display: flex; gap: .7rem; align-items: flex-start; font-size: .9375rem; margin-bottom: .9rem; cursor: pointer; }
 .onay input { width: 1.2rem; height: 1.2rem; margin-top: .2rem; accent-color: var(--sumak); flex: none; }
 
@@ -220,7 +218,7 @@ img, svg { display: block; max-width: 100%; }
 .demo-kutu ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .4rem; }
 .demo-kutu button {
   width: 100%; display: flex; justify-content: space-between; gap: 1rem; text-align: left; font: inherit; color: var(--findik);
-  background: #faf9f6; border: 1px solid var(--cizgi); border-radius: var(--r-kucuk); padding: .55rem .8rem; cursor: pointer;
+  background: var(--zemin); border: 1px solid var(--cizgi); border-radius: var(--r-kucuk); padding: .55rem .8rem; cursor: pointer;
 }
 .demo-kutu button:hover { border-color: var(--sumak); }
 .demo-kutu button span { color: var(--findik-orta); }
@@ -233,9 +231,10 @@ img, svg { display: block; max-width: 100%; }
 .taslak-notu { display: inline-block; background: var(--safran-acik); padding: .4rem .8rem; border-radius: var(--r-kucuk); font-size: .875rem; font-weight: 600; }
 
 /* ---------- paneller ---------- */
-.panel { min-height: 100vh; background: #faf8f4; }
+.panel { min-height: 100vh; background: var(--zemin); }
 .panel__ust { background: var(--sumak); color: #fff; }
-.panel--magaza .panel__ust { background: var(--fistik-koyu); }
+.panel--kasiyer .panel__ust,
+.panel--mudur .panel__ust { background: var(--fistik-koyu); }
 .panel--yonetici .panel__ust { background: var(--findik); }
 .panel__ust-ic { display: flex; align-items: center; gap: 1rem; min-height: 64px; }
 .panel__kim { margin-left: auto; text-align: right; display: flex; flex-direction: column; line-height: 1.25; }
@@ -265,7 +264,8 @@ img, svg { display: block; max-width: 100%; }
 .puan-kutu__dip { color: var(--findik-orta); font-size: .875rem; margin: 1rem 0 0; }
 
 .yer-tutucu { background: #fff; border: 1px solid var(--cizgi); border-radius: var(--r-kart); padding: 1.75rem; max-width: 640px; }
-.yer-tutucu ol { padding-left: 1.2rem; color: var(--findik-orta); }
+.yer-tutucu ol, .yer-tutucu ul { padding-left: 1.2rem; color: var(--findik-orta); }
+.yer-tutucu li { margin-bottom: .5rem; }
 
 .ozet-sayilar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 0 0 2rem; }
 .ozet-sayilar div { background: #fff; border: 1px solid var(--cizgi); border-radius: var(--r-orta); padding: 1.1rem 1.25rem; }
@@ -283,3 +283,9 @@ tbody th { font-weight: 600; }
 .sag { text-align: right; font-variant-numeric: tabular-nums; }
 .cubuk-hucre { width: 30%; }
 .cubuk { display: block; height: 10px; background: var(--safran); border-radius: 999px; }
+
+/* ---------- Faz 1.5 eklemeleri ---------- */
+.puan-kutu__nasil { background: var(--fistik); border-radius: var(--r-orta); padding: 1rem 1.1rem; font-size: .9375rem; }
+.puan-kutu__nasil strong { display: block; margin-bottom: .25rem; }
+.puan-kutu__nasil p { margin: 0; color: var(--findik-orta); }
+.kahraman__magaza { font-size: .9375rem; color: var(--findik-orta); margin-top: .35rem; }

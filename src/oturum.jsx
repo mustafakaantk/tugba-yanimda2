@@ -5,7 +5,7 @@ import { api } from './api.js';
 
 const OturumBaglami = createContext(null);
 
-export const PANEL = { musteri: '/musteri', magaza: '/magaza', yonetici: '/yonetim' };
+export const PANEL = { musteri: '/musteri', kasiyer: '/kasa', mudur: '/magaza', yonetici: '/yonetim' };
 
 export function OturumSaglayici({ children }) {
   const [kullanici, setKullanici] = useState(null);

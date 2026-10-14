@@ -4,11 +4,11 @@ import { api, sayi } from '../api.js';
 import { DesenKare, PanelCercevesi, PuanHalkasi } from '../bilesenler.jsx';
 import { useOturum } from '../oturum.jsx';
 
-// Faz 1: iskelet. Gerçek QR, hareket geçmişi ve kupon alma Faz 2'de eklenecek.
+// Faz 1 iskeleti. Faz 2'de: gerçek QR, puan geçmişi, favori mağaza ve ürünler, ürün kataloğu.
 export default function MusteriPaneli() {
   const { kullanici } = useOturum();
   const konum = useLocation();
-  const [kurallar, setKurallar] = useState({ kupon_puan_bedeli: 200, kupon_indirim_orani: 5 });
+  const [kurallar, setKurallar] = useState({ kupon_puan_bedeli: 200, kupon_indirim_orani: 5, kupon_gunluk_limit: 1 });
   useEffect(() => {
     api('/program').then((p) => setKurallar(p.kurallar)).catch(() => {});
   }, []);
@@ -45,12 +45,16 @@ export default function MusteriPaneli() {
           </div>
           <p>
             {kalan === 0
-              ? `%${kurallar.kupon_indirim_orani} indirim kuponu almaya yetecek puanın var.`
-              : `%${kurallar.kupon_indirim_orani} indirim kuponuna ${sayi(kalan)} puan kaldı.`}
+              ? `%${kurallar.kupon_indirim_orani} indirim hakkın hazır.`
+              : `%${kurallar.kupon_indirim_orani} indirime ${sayi(kalan)} puan kaldı.`}
           </p>
-          <button className="dugme dugme--tam" disabled title="Faz 2'de etkinleşecek">
-            Kupon al
-          </button>
+          <div className="puan-kutu__nasil">
+            <strong>Puanını nasıl kullanırsın?</strong>
+            <p>
+              Kasada “puanımı kullanmak istiyorum” de. Telefonuna gelen kodu kasiyere söyle; {sayi(hedef)} puan
+              düşülür, alışverişine %{kurallar.kupon_indirim_orani} indirim uygulanır. Günde {kurallar.kupon_gunluk_limit} kez.
+            </p>
+          </div>
           <p className="puan-kutu__dip">{sayi(kullanici.alisverisSayisi)} alışveriş yaptın.</p>
         </section>
       </div>

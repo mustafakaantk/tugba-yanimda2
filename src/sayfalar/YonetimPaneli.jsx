@@ -14,6 +14,7 @@ export default function YonetimPaneli() {
   if (!veri) return <PanelCercevesi baslik="Genel bakış"><p className="yukleniyor">Yükleniyor…</p></PanelCercevesi>;
 
   const g = veri.genel;
+  const s = veri.sayilar || {};
   const uyePayi = Number(g.toplam_ciro) > 0 ? Math.round((Number(g.uye_cirosu) / Number(g.toplam_ciro)) * 100) : 0;
   const enYuksek = Math.max(...veri.magazalar.map((m) => Number(m.ciro)), 1);
 
@@ -27,15 +28,19 @@ export default function YonetimPaneli() {
       </dl>
 
       <section className="tablo-kutu">
-        <h2>Mağazalara göre ciro</h2>
+        <h2>En çok ciro yapan mağazalar</h2>
+        <p className="panel__dip" style={{ marginTop: 0 }}>
+          {sayi(s.magaza_sayisi)} aktif mağazadan {sayi(s.satisli_magaza)} tanesinde Tuğba Yanımda satışı var. Katalogda {sayi(s.urun_sayisi)} ürün kayıtlı.
+        </p>
         <table>
           <thead>
-            <tr><th scope="col">Mağaza</th><th scope="col" className="sag">Satış</th><th scope="col" className="sag">Ciro</th><th scope="col"><span className="gizli">Oran</span></th></tr>
+            <tr><th scope="col">Mağaza</th><th scope="col">İl</th><th scope="col" className="sag">Satış</th><th scope="col" className="sag">Ciro</th><th scope="col"><span className="gizli">Oran</span></th></tr>
           </thead>
           <tbody>
             {veri.magazalar.map((m) => (
-              <tr key={m.ad}>
+              <tr key={`${m.il}-${m.ad}`}>
                 <th scope="row">{m.ad}</th>
+                <td>{m.il}</td>
                 <td className="sag">{sayi(m.satis)}</td>
                 <td className="sag">{tl(m.ciro)}</td>
                 <td className="cubuk-hucre"><span className="cubuk" style={{ width: `${(Number(m.ciro) / enYuksek) * 100}%` }} /></td>

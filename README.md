@@ -1,7 +1,12 @@
 # Tuğba Yanımda – Sadakat Programı (Demo)
 
-Tuğba Kuruyemiş sadakat programının tanıtım sitesi ve üç paneli: **Müşteri**, **Mağaza**, **Genel Merkez**.
-Tek giriş ekranı vardır; sistem kullanıcının rolünü veritabanından okuyup ilgili paneli açar.
+Tuğba Kuruyemiş sadakat programının tanıtım sitesi ve dört paneli: **Müşteri**, **Kasa** (kasiyer),
+**Mağaza** (mağaza müdürü) ve **Genel Merkez**. Tek giriş ekranı vardır; sistem kullanıcının rolünü
+veritabanından okuyup ilgili paneli açar.
+
+Önceki "Tuğba Yanımda" prototipinden (claude.ai'deki tek sayfalık uygulama) şunlar taşındı:
+132 gerçek mağaza, 385 ürünlük fotoğraflı katalog, Tuğba marka renkleri ve logo, kasiyer/müdür
+rol ayrımı, program kuralları (1 TL = 1 puan, 200 puan = %5, günde 1 kez, SMS koduyla kullanım).
 
 ## Durum
 
@@ -9,17 +14,19 @@ Tek giriş ekranı vardır; sistem kullanıcının rolünü veritabanından okuy
 |---|---|---|
 | 0 | Veritabanı şeması, demo verisi | ✅ |
 | 1 | Tanıtım sitesi, kayıt, giriş, rol yönlendirmesi | ✅ |
-| 2 | Müşteri paneli: gerçek QR, puan geçmişi, kupon alma | ⏳ |
-| 3 | Mağaza satış ekranı: QR okutma, puan kazandırma/harcatma | ⏳ |
-| 4 | Yönetici paneli: müşteri listesi, raporlar, ayarlar | ⏳ |
-| 5 | Canlıya hazırlık: SMS doğrulama, dinamik QR, KVKK | ⏳ |
+| 1.5 | Eski prototipten veri, marka ve rol aktarımı | ✅ |
+| 2 | Müşteri paneli: gerçek QR, puan geçmişi, favori mağaza/ürün, ürün kataloğu | ⏳ |
+| 3 | Kasa ekranı: QR/numara ile puan kazandırma, SMS koduyla puan kullandırma | ⏳ |
+| 4 | Müdür ve Genel Merkez: raporlar, duyuru/indirim onay akışı, bildirimler, ayarlar | ⏳ |
+| 5 | Canlıya hazırlık: gerçek SMS firması, dinamik QR, KVKK metinleri | ⏳ |
 
 ## Demo hesaplar (şifre: `Demo1234`)
 
 | Rol | Giriş bilgisi |
 |---|---|
 | Üye | `0532 000 00 01` (Ayşe Yılmaz) |
-| Mağaza | `alsancak01`, `kadikoy01`, `bakirkoy01`, `kizilay01`, `nilufer01` (her mağazada `…02` de var) |
+| Kasiyer | `alsancak02`, `kadikoy02`, `bakirkoy02`, `kizilay02`, `nilufer02` |
+| Mağaza müdürü | `alsancak01`, `kadikoy01`, `bakirkoy01`, `kizilay01`, `nilufer01` |
 | Genel Merkez | `yonetim` |
 
 ## Klasör yapısı
@@ -32,8 +39,11 @@ netlify/
 src/
   sayfalar/              AnaSayfa, Giris, Kayit, Kvkk, MusteriPaneli, MagazaPaneli, YonetimPaneli
   stil.css               Renkler ve tasarım (marka renkleri en üstteki değişkenlerden değişir)
+public/urun/             385 ürün görseli (WebP), public/tugba-logo.webp
+veri/                    magazalar.json (132 mağaza), urunler.json (385 ürün, 11 kategori)
 scripts/
-  demo-verisi-uret.mjs   Demo verisini yeniden üretir
+  demo-verisi-uret.mjs            Migration 2'yi (demo verisi) üretir
+  magaza-urun-migration-uret.mjs  Migration 3'ü (mağaza, ürün, roller) veri/ klasöründen üretir
 ```
 
 ## Kurallar

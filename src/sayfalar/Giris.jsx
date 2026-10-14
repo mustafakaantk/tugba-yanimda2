@@ -7,7 +7,8 @@ import { PANEL, useOturum } from '../oturum.jsx';
 // Yalnızca demo sürümünde gösterilir; canlıda bu liste kaldırılacak.
 const DEMO_HESAPLAR = [
   { etiket: 'Üye', kimlik: '0532 000 00 01', aciklama: 'Ayşe Yılmaz' },
-  { etiket: 'Mağaza', kimlik: 'alsancak01', aciklama: 'Alsancak Mağazası' },
+  { etiket: 'Kasiyer', kimlik: 'alsancak02', aciklama: 'Alsancak kasası' },
+  { etiket: 'Mağaza müdürü', kimlik: 'alsancak01', aciklama: 'Alsancak mağazası' },
   { etiket: 'Genel Merkez', kimlik: 'yonetim', aciklama: 'Yönetici' },
 ];
 

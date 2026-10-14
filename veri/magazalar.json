@@ -1,0 +1,1061 @@
+{
+ "kaynak": "tugbakuruyemis.com.tr/Magazalarimiz (eski Tuğba Yanımda prototipinden aktarıldı)",
+ "magazalar": [
+  {
+   "il": "İzmir",
+   "ad": "Alaybey Migros",
+   "ilce": "Karşıyaka",
+   "adres": "Bahariye Mahallesi Hidayet Erzeybek Caddesi No:28",
+   "enlem": 38.46116,
+   "boylam": 27.11765
+  },
+  {
+   "il": "İzmir",
+   "ad": "Aliağa",
+   "ilce": "Aliağa",
+   "adres": "İstiklal Caddesi No:33/A",
+   "enlem": 38.80077,
+   "boylam": 26.96968
+  },
+  {
+   "il": "İzmir",
+   "ad": "Alsancak",
+   "ilce": "Konak",
+   "adres": "Kıbrıs Şehitleri Caddesi No:1",
+   "enlem": 38.43477,
+   "boylam": 27.14006
+  },
+  {
+   "il": "İzmir",
+   "ad": "Atakent",
+   "ilce": "Karşıyaka",
+   "adres": "Yalı Mah. Caher Dudayev Bulvarı No:113/A",
+   "enlem": 38.46852,
+   "boylam": 27.08553
+  },
+  {
+   "il": "İzmir",
+   "ad": "Ayrancılar",
+   "ilce": "Torbalı",
+   "adres": "Fevzi Çakmak Mahallesi Yazıbaşı İzmir Caddesi No:50",
+   "enlem": 38.23829,
+   "boylam": 27.28118
+  },
+  {
+   "il": "İzmir",
+   "ad": "Balçova 1",
+   "ilce": "Balçova",
+   "adres": "Ata Caddesi No:97/A",
+   "enlem": 38.38962,
+   "boylam": 27.0563
+  },
+  {
+   "il": "İzmir",
+   "ad": "Balçova 2",
+   "ilce": "Balçova",
+   "adres": "Onur Mah. Ata Cad. No:22/24B",
+   "enlem": 38.394,
+   "boylam": 27.05789
+  },
+  {
+   "il": "İzmir",
+   "ad": "Balçova Migros",
+   "ilce": "Balçova",
+   "adres": "Mithatpaşa Caddesi No:1462 Kipa AVM",
+   "enlem": 38.3956,
+   "boylam": 27.04498
+  },
+  {
+   "il": "İzmir",
+   "ad": "Bergama",
+   "ilce": "Bergama",
+   "adres": "Maltepe Mahallesi Boblingen Caddesi No:62",
+   "enlem": 39.11347,
+   "boylam": 27.17776
+  },
+  {
+   "il": "İzmir",
+   "ad": "Betonyol",
+   "ilce": "Konak",
+   "adres": "Kılıç Reis Şükrü Saraçoğlu Caddesi No:12 D:B",
+   "enlem": 38.40627,
+   "boylam": 27.1183
+  },
+  {
+   "il": "İzmir",
+   "ad": "Bornova",
+   "ilce": "Bornova",
+   "adres": "Mustafa Kemal Caddesi No:25/A",
+   "enlem": 38.46462,
+   "boylam": 27.21348
+  },
+  {
+   "il": "İzmir",
+   "ad": "Bostanlı",
+   "ilce": "Karşıyaka",
+   "adres": "Bostanlı Mahallesi Şehitler Bulvarı 17/A",
+   "enlem": 38.45791,
+   "boylam": 27.09654
+  },
+  {
+   "il": "İzmir",
+   "ad": "Bostanlı Migros",
+   "ilce": "Karşıyaka",
+   "adres": "Bostanlı Mahallesi Şehitler Bulvarı Katlıotopark Altı No:28",
+   "enlem": 38.3956,
+   "boylam": 27.04498
+  },
+  {
+   "il": "İzmir",
+   "ad": "Dikili",
+   "ilce": "Dikili",
+   "adres": "İsmetpaşa Mahallesi Adnan Menderes Caddesi No:36D",
+   "enlem": 39.0707,
+   "boylam": 26.88662
+  },
+  {
+   "il": "İzmir",
+   "ad": "Forum Bornova Migros",
+   "ilce": "Bornova",
+   "adres": "Kazımdirik Mahallesi Forum Bornova No:36",
+   "enlem": 38.45001,
+   "boylam": 27.20826
+  },
+  {
+   "il": "İzmir",
+   "ad": "Gaziemir",
+   "ilce": "Gaziemir",
+   "adres": "Gazi Önder Caddesi No:79 D:1B",
+   "enlem": 38.32451,
+   "boylam": 27.13114
+  },
+  {
+   "il": "İzmir",
+   "ad": "Girne",
+   "ilce": "Karşıyaka",
+   "adres": "Aksoy, Girne Blv. No:36/7",
+   "enlem": 38.45452,
+   "boylam": 27.106
+  },
+  {
+   "il": "İzmir",
+   "ad": "Göztepe",
+   "ilce": "Konak",
+   "adres": "Göztepe Mahallesi Mithatpaşa Caddesi No:835",
+   "enlem": 38.39834,
+   "boylam": 27.08698
+  },
+  {
+   "il": "İzmir",
+   "ad": "Güzelbahçe",
+   "ilce": "Güzelbahçe",
+   "adres": "Yalı Mah. Mithatpaşa Cad. No:445-447/A",
+   "enlem": 38.37792,
+   "boylam": 26.88723
+  },
+  {
+   "il": "İzmir",
+   "ad": "Güzelbahçe Migros",
+   "ilce": "Güzelbahçe",
+   "adres": "Yalı Mahallesi 264. Sk. No:1",
+   "enlem": 38.37664,
+   "boylam": 26.88163
+  },
+  {
+   "il": "İzmir",
+   "ad": "Güzelyalı",
+   "ilce": "Konak",
+   "adres": "Mithatpaşa Caddesi No:921 D:C",
+   "enlem": 38.39741,
+   "boylam": 27.08442
+  },
+  {
+   "il": "İzmir",
+   "ad": "Hatay",
+   "ilce": "Karabağlar",
+   "adres": "Arap Hasan Mahallesi İnönü Caddesi 211/C",
+   "enlem": 38.40255,
+   "boylam": 27.11309
+  },
+  {
+   "il": "İzmir",
+   "ad": "Karşıyaka Çarşı",
+   "ilce": "Karşıyaka",
+   "adres": "Donanmacı Mahallesi Kemalpaşa Caddesi No:123",
+   "enlem": 38.45695,
+   "boylam": 27.11705
+  },
+  {
+   "il": "İzmir",
+   "ad": "Kemalpaşa",
+   "ilce": "Kemalpaşa",
+   "adres": "Atatürk Bulvarı No:12",
+   "enlem": 38.42692,
+   "boylam": 26.9633
+  },
+  {
+   "il": "İzmir",
+   "ad": "Konak 1",
+   "ilce": "Konak",
+   "adres": "Anafartalar Caddesi No:7",
+   "enlem": 38.41839,
+   "boylam": 27.12824
+  },
+  {
+   "il": "İzmir",
+   "ad": "Konak 2",
+   "ilce": "Konak",
+   "adres": "Anafartalar Caddesi No:8",
+   "enlem": 38.4185,
+   "boylam": 27.12985
+  },
+  {
+   "il": "İzmir",
+   "ad": "Menderes",
+   "ilce": "Menderes",
+   "adres": "Kasımpaşa Mah. Atatürk Cad. No:15",
+   "enlem": 38.25293,
+   "boylam": 26.85167
+  },
+  {
+   "il": "İzmir",
+   "ad": "Menemen",
+   "ilce": "Menemen",
+   "adres": "Esatpaşa Mah. Atatürk Bul. No:46",
+   "enlem": 38.60799,
+   "boylam": 27.07287
+  },
+  {
+   "il": "İzmir",
+   "ad": "Narlıdere",
+   "ilce": "Narlıdere",
+   "adres": "Mithatpaşa Caddesi No:255/A",
+   "enlem": 38.39416,
+   "boylam": 27.00713
+  },
+  {
+   "il": "İzmir",
+   "ad": "Narlıdere 2",
+   "ilce": "Narlıdere",
+   "adres": "Çamtepe Mah. Mithatpaşa Cad. No:245/C",
+   "enlem": 38.39409,
+   "boylam": 27.01016
+  },
+  {
+   "il": "İzmir",
+   "ad": "Nokta",
+   "ilce": "Karabağlar",
+   "adres": "Arap Hasan Mahallesi İnönü Caddesi No:317/B",
+   "enlem": 38.40128,
+   "boylam": 27.0724
+  },
+  {
+   "il": "İzmir",
+   "ad": "Seferihisar",
+   "ilce": "Seferihisar",
+   "adres": "Camikebir Mahallesi Atatürk Caddesi No:44",
+   "enlem": 38.19507,
+   "boylam": 26.83411
+  },
+  {
+   "il": "İzmir",
+   "ad": "Selçuk",
+   "ilce": "Selçuk",
+   "adres": "Atatürk 1006. Sokak No:2 D:H",
+   "enlem": 37.94992,
+   "boylam": 27.36915
+  },
+  {
+   "il": "İzmir",
+   "ad": "Torbalı",
+   "ilce": "Torbalı",
+   "adres": "Tepeköy İsmetpaşa Caddesi 3/A",
+   "enlem": 38.14985,
+   "boylam": 27.35994
+  },
+  {
+   "il": "İzmir",
+   "ad": "Urla",
+   "ilce": "Urla",
+   "adres": "Camiatik Mahallesi Zafer Caddesi No:3",
+   "enlem": 38.32274,
+   "boylam": 26.76513
+  },
+  {
+   "il": "İzmir",
+   "ad": "Çankaya",
+   "ilce": "Konak",
+   "adres": "Yenigün Mahallesi Gazi Osman Paşa Bulvarı 56/A",
+   "enlem": 38.42233,
+   "boylam": 27.13514
+  },
+  {
+   "il": "İzmir",
+   "ad": "Çeşme",
+   "ilce": "Çeşme",
+   "adres": "İsmet İnönü, 2001 Sok. No:68/A",
+   "enlem": 38.32566,
+   "boylam": 26.3065
+  },
+  {
+   "il": "İzmir",
+   "ad": "Çeşme Alaçatı",
+   "ilce": "Çeşme",
+   "adres": "Alaçatı Mahallesi Kemalpaşa Caddesi No:61/A",
+   "enlem": 38.38275,
+   "boylam": 26.47885
+  },
+  {
+   "il": "İzmir",
+   "ad": "Çiğli Migros",
+   "ilce": "Çiğli",
+   "adres": "Yeni Havaalanı Caddesi Kipa D:No:40",
+   "enlem": 38.48122,
+   "boylam": 27.05439
+  },
+  {
+   "il": "İzmir",
+   "ad": "Özkanlar Migros",
+   "ilce": "Bayraklı",
+   "adres": "Manavkuyu Mahallesi Mustafa Kemal Caddesi No:136",
+   "enlem": 38.46114,
+   "boylam": 27.19816
+  },
+  {
+   "il": "İzmir",
+   "ad": "Üçkuyular",
+   "ilce": "Karabağlar",
+   "adres": "Mehmetçik Bulvarı No:16/A",
+   "enlem": 38.3959,
+   "boylam": 27.06709
+  },
+  {
+   "il": "İzmir",
+   "ad": "Üçyol Express",
+   "ilce": "Karabağlar",
+   "adres": "Bahçelievler Mah. İnönü Caddesi No:107/B",
+   "enlem": 38.4056,
+   "boylam": 27.12133
+  },
+  {
+   "il": "İzmir",
+   "ad": "İstinyepark AVM",
+   "ilce": "Balçova",
+   "adres": "Bahçelerarası Mh. Şehit Binbaşı Ali Resmi Tufan Sok. No:3 Kat:-1 No:64",
+   "enlem": 38.3992,
+   "boylam": 27.0687
+  },
+  {
+   "il": "İzmir",
+   "ad": "Şirinyer",
+   "ilce": "Buca",
+   "adres": "Menderes Caddesi No:238",
+   "enlem": 38.39201,
+   "boylam": 27.15033
+  },
+  {
+   "il": "İzmir",
+   "ad": "Şirinyer İzban",
+   "ilce": "Buca",
+   "adres": "İnkılap Mah. Mehmet Akif Caddesi No:25/B",
+   "enlem": 38.3931,
+   "boylam": 27.148
+  },
+  {
+   "il": "Aydın",
+   "ad": "Bulvar",
+   "ilce": "Efeler",
+   "adres": "Cumhuriyet Caddesi No:2",
+   "enlem": 37.84716,
+   "boylam": 27.84125
+  },
+  {
+   "il": "Aydın",
+   "ad": "Didim",
+   "ilce": "Didim",
+   "adres": "Yeni Mahalle Cumhuriyet Caddesi No:100/A",
+   "enlem": 37.37675,
+   "boylam": 27.26443
+  },
+  {
+   "il": "Aydın",
+   "ad": "Didim Altınkum",
+   "ilce": "Didim",
+   "adres": "Çamlık Mahallesi Yunus Caddesi No:2/C-80",
+   "enlem": 37.35579,
+   "boylam": 27.27589
+  },
+  {
+   "il": "Aydın",
+   "ad": "Didim Migros",
+   "ilce": "Didim",
+   "adres": "Efeler Mah. Atatürk Bulvarı No:119",
+   "enlem": 37.37328,
+   "boylam": 27.26315
+  },
+  {
+   "il": "Aydın",
+   "ad": "Kurtuluş",
+   "ilce": "Efeler",
+   "adres": "Adnan Menderes Bulvarı No:46/D",
+   "enlem": 37.84343,
+   "boylam": 27.8421
+  },
+  {
+   "il": "Aydın",
+   "ad": "Kuşadası 1",
+   "ilce": "Kuşadası",
+   "adres": "Adnan Menderes Bulvarı No:24/A",
+   "enlem": 37.85777,
+   "boylam": 27.25857
+  },
+  {
+   "il": "Aydın",
+   "ad": "Kuşadası 2",
+   "ilce": "Kuşadası",
+   "adres": "Türkmen Mahallesi İnönü Caddesi No:28/A",
+   "enlem": 37.86121,
+   "boylam": 27.25848
+  },
+  {
+   "il": "Aydın",
+   "ad": "Kuşadası 3",
+   "ilce": "Kuşadası",
+   "adres": "Camikebir Mah. Sağlık Caddesi No:71/A",
+   "enlem": 37.86084,
+   "boylam": 27.26063
+  },
+  {
+   "il": "Aydın",
+   "ad": "Kuşadası 5M Migros",
+   "ilce": "Kuşadası",
+   "adres": "Yavansu Mah. Karaova 1. Sok. G-Blok No:8-7/2",
+   "enlem": 37.80839,
+   "boylam": 27.27512
+  },
+  {
+   "il": "Aydın",
+   "ad": "Merkez",
+   "ilce": "Efeler",
+   "adres": "Hasanefendi-Ramazan Paşa Mahallesi İstiklal Caddesi 1/A",
+   "enlem": 37.84838,
+   "boylam": 27.84192
+  },
+  {
+   "il": "Aydın",
+   "ad": "Meydan",
+   "ilce": "Efeler",
+   "adres": "Cumhuriyet, Adnan Menderes Blv. No:14/A",
+   "enlem": 37.84709,
+   "boylam": 27.8435
+  },
+  {
+   "il": "Aydın",
+   "ad": "Mimar Sinan",
+   "ilce": "Efeler",
+   "adres": "Mimar Sinan Mahallesi Ali İhsan Paşa Bulvarı No:55/A",
+   "enlem": 37.85147,
+   "boylam": 27.81009
+  },
+  {
+   "il": "Aydın",
+   "ad": "Nazilli 1",
+   "ilce": "Nazilli",
+   "adres": "Uzunçarşı Caddesi No:64",
+   "enlem": 37.91713,
+   "boylam": 28.3244
+  },
+  {
+   "il": "Aydın",
+   "ad": "Nazilli 2",
+   "ilce": "Nazilli",
+   "adres": "Yeni Mahallesi Ordu Caddesi 5/A",
+   "enlem": 37.91693,
+   "boylam": 28.32155
+  },
+  {
+   "il": "Aydın",
+   "ad": "Söke",
+   "ilce": "Söke",
+   "adres": "İstasyon Caddesi No:12",
+   "enlem": 37.75111,
+   "boylam": 27.40278
+  },
+  {
+   "il": "İstanbul",
+   "ad": "Bakırköy Çarşı",
+   "ilce": "Bakırköy",
+   "adres": "Fahri Korutürk Caddesi No:3",
+   "enlem": 40.97856,
+   "boylam": 28.87208
+  },
+  {
+   "il": "İstanbul",
+   "ad": "Bakırköy İncirli",
+   "ilce": "Bakırköy",
+   "adres": "İncirli Caddesi No:55/2",
+   "enlem": 40.98955,
+   "boylam": 28.86889
+  },
+  {
+   "il": "İstanbul",
+   "ad": "Beyoğlu Karaköy 1",
+   "ilce": "Beyoğlu",
+   "adres": "Kemankeş Karamustafapaşa Mah. Gümrük Sk. No:26/B",
+   "enlem": 41.02393,
+   "boylam": 28.97697
+  },
+  {
+   "il": "İstanbul",
+   "ad": "Fatih Beyazıt",
+   "ilce": "Fatih",
+   "adres": "Mimar Kemalettin Mahallesi Yeniçeriler Caddesi 65/A",
+   "enlem": 41.00901,
+   "boylam": 28.9635
+  },
+  {
+   "il": "İstanbul",
+   "ad": "Fatih Haseki",
+   "ilce": "Fatih",
+   "adres": "Molla Gürani Mahallesi Turgut Özal Millet Caddesi No:38/A",
+   "enlem": 41.01119,
+   "boylam": 28.94147
+  },
+  {
+   "il": "İstanbul",
+   "ad": "Fatih Sirkeci",
+   "ilce": "Fatih",
+   "adres": "Hobyar Mah. Hamidiye Cad. No:3D",
+   "enlem": 41.01579,
+   "boylam": 28.97469
+  },
+  {
+   "il": "İstanbul",
+   "ad": "Güngören",
+   "ilce": "Güngören",
+   "adres": "Menderes Caddesi No:23",
+   "enlem": 41.01161,
+   "boylam": 28.87091
+  },
+  {
+   "il": "İstanbul",
+   "ad": "Kadıköy",
+   "ilce": "Kadıköy",
+   "adres": "Osmanağa Mahallesi Söğütlüçeşme Caddesi No:76/B",
+   "enlem": 40.99053,
+   "boylam": 29.02594
+  },
+  {
+   "il": "İstanbul",
+   "ad": "Kadıköy Mühürdar",
+   "ilce": "Kadıköy",
+   "adres": "Caferağa Mahallesi Mühürdar Caddesi No:48/C",
+   "enlem": 40.98949,
+   "boylam": 29.02161
+  },
+  {
+   "il": "İstanbul",
+   "ad": "Küçükçekmece Sefaköy 1",
+   "ilce": "Küçükçekmece",
+   "adres": "Kemalpaşa Mah. Halkalı Cad. No:151/1A",
+   "enlem": 41.00444,
+   "boylam": 28.79763
+  },
+  {
+   "il": "İstanbul",
+   "ad": "Küçükçekmece Sefaköy 2",
+   "ilce": "Küçükçekmece",
+   "adres": "Kartaltepe Mah. Suvari Cad. B Blok No:6/131",
+   "enlem": 41.00057,
+   "boylam": 28.79754
+  },
+  {
+   "il": "İstanbul",
+   "ad": "Üsküdar Emaar Square AVM",
+   "ilce": "Üsküdar",
+   "adres": "Ünalan, Libadiye Cd. No:88 Kat:B06 D:347",
+   "enlem": 40.99837,
+   "boylam": 29.07356
+  },
+  {
+   "il": "Muğla",
+   "ad": "Bodrum",
+   "ilce": "Bodrum",
+   "adres": "Çarşı Mahallesi Cevat Şakir Caddesi No:26",
+   "enlem": 37.03752,
+   "boylam": 27.42103
+  },
+  {
+   "il": "Muğla",
+   "ad": "Bodrum Garaj Migros",
+   "ilce": "Bodrum",
+   "adres": "Yokuşbaşı Mah. Kulcu Sokak Çarşı Garaj Migros İçi No:22",
+   "enlem": 37.03886,
+   "boylam": 27.43161
+  },
+  {
+   "il": "Muğla",
+   "ad": "Bodrum Konacık Migros",
+   "ilce": "Bodrum",
+   "adres": "Çırkan Mah. Atatürk Bul. No:224/1",
+   "enlem": 37.05656,
+   "boylam": 27.36818
+  },
+  {
+   "il": "Muğla",
+   "ad": "Bodrum Migros",
+   "ilce": "Bodrum",
+   "adres": "Eskiçeşme Mahallesi Turgutreis Caddesi No:209",
+   "enlem": 37.03752,
+   "boylam": 27.42103
+  },
+  {
+   "il": "Muğla",
+   "ad": "Bodrum Turgutreis",
+   "ilce": "Bodrum",
+   "adres": "Turgutreis, Gazi Mustafa Kemal Blv. No:2A/1",
+   "enlem": 37.0066,
+   "boylam": 27.25733
+  },
+  {
+   "il": "Muğla",
+   "ad": "Bodrum Yalıkavak Migros",
+   "ilce": "Bodrum",
+   "adres": "Dirmil Mah. İnönü Cad. No:98/1 Yalıkavak",
+   "enlem": 37.10448,
+   "boylam": 27.31643
+  },
+  {
+   "il": "Muğla",
+   "ad": "Fethiye",
+   "ilce": "Fethiye",
+   "adres": "Cumhuriyet Mahallesi Atatürk Caddesi No:50/A",
+   "enlem": 36.62206,
+   "boylam": 29.10813
+  },
+  {
+   "il": "Muğla",
+   "ad": "Marmaris Tepe",
+   "ilce": "Marmaris",
+   "adres": "Ulusal Egemenlik Caddesi No:4 D:Z",
+   "enlem": 36.85347,
+   "boylam": 28.26878
+  },
+  {
+   "il": "Muğla",
+   "ad": "Milas",
+   "ilce": "Milas",
+   "adres": "Hacı İlyas Ağa Mahallesi Kadıağa Caddesi No:12",
+   "enlem": 37.08339,
+   "boylam": 27.79081
+  },
+  {
+   "il": "Muğla",
+   "ad": "Muğla Merkez",
+   "ilce": "Menteşe",
+   "adres": "Emirbeyazıt Mahallesi Üçler Sokak 32/A",
+   "enlem": 37.21633,
+   "boylam": 28.35958
+  },
+  {
+   "il": "Manisa",
+   "ad": "Akhisar",
+   "ilce": "Akhisar",
+   "adres": "Tahir Ün Caddesi No:53",
+   "enlem": 38.92103,
+   "boylam": 27.84017
+  },
+  {
+   "il": "Manisa",
+   "ad": "Manisa 1",
+   "ilce": "Şehzadeler",
+   "adres": "Mustafa Kemal Paşa Caddesi No:13",
+   "enlem": 38.50404,
+   "boylam": 27.25584
+  },
+  {
+   "il": "Manisa",
+   "ad": "Manisa 2",
+   "ilce": "Şehzadeler",
+   "adres": "8 Eylül Caddesi 52/A",
+   "enlem": 38.50371,
+   "boylam": 27.25583
+  },
+  {
+   "il": "Manisa",
+   "ad": "Manisa Güzelyurt",
+   "ilce": "Yunusemre",
+   "adres": "5744 Sk. No:32/J",
+   "enlem": 38.62901,
+   "boylam": 27.3727
+  },
+  {
+   "il": "Manisa",
+   "ad": "Manisa Magnezya Migros",
+   "ilce": "Yunusemre",
+   "adres": "Ali Rıza Efendi Caddesi No:4 D:Z01",
+   "enlem": 38.50388,
+   "boylam": 27.25584
+  },
+  {
+   "il": "Manisa",
+   "ad": "Salihli",
+   "ilce": "Salihli",
+   "adres": "Cumhuriyet Mahallesi Atatürk Caddesi No:125/A",
+   "enlem": 38.48258,
+   "boylam": 28.14569
+  },
+  {
+   "il": "Manisa",
+   "ad": "Soma",
+   "ilce": "Soma",
+   "adres": "Kurtuluş, Fatih Cd. No:5/B",
+   "enlem": 39.1823,
+   "boylam": 27.60382
+  },
+  {
+   "il": "Manisa",
+   "ad": "Turgutlu",
+   "ilce": "Turgutlu",
+   "adres": "Acarlar Atatürk Bulvarı No:221 D:C",
+   "enlem": 38.49529,
+   "boylam": 27.70304
+  },
+  {
+   "il": "Balıkesir",
+   "ad": "Ayvalık",
+   "ilce": "Ayvalık",
+   "adres": "İsmetpaşa Mahallesi Atatürk Bulvarı No:123/1",
+   "enlem": 39.32033,
+   "boylam": 26.69074
+  },
+  {
+   "il": "Balıkesir",
+   "ad": "Balıkesir 1",
+   "ilce": "Karesi",
+   "adres": "Yıldırım Mahallesi Milli Kuvvetler Caddesi No:37",
+   "enlem": 39.64775,
+   "boylam": 27.88144
+  },
+  {
+   "il": "Balıkesir",
+   "ad": "Balıkesir 2",
+   "ilce": "Karesi",
+   "adres": "Atalar Caddesi No:15/A",
+   "enlem": 39.64658,
+   "boylam": 27.87975
+  },
+  {
+   "il": "Balıkesir",
+   "ad": "Balıkesir 3",
+   "ilce": "Karesi",
+   "adres": "Eskikuyumcular Mah. Atalar Cad. 31A",
+   "enlem": 39.6456,
+   "boylam": 27.88181
+  },
+  {
+   "il": "Balıkesir",
+   "ad": "Bandırma 1",
+   "ilce": "Bandırma",
+   "adres": "Haydar Çavuş Mahallesi İsmet İnönü Caddesi 42/A",
+   "enlem": 40.35299,
+   "boylam": 27.96782
+  },
+  {
+   "il": "Balıkesir",
+   "ad": "Bandırma 2",
+   "ilce": "Bandırma",
+   "adres": "Kaşif Acar Caddesi No:31",
+   "enlem": 40.35387,
+   "boylam": 27.96982
+  },
+  {
+   "il": "Balıkesir",
+   "ad": "Edremit",
+   "ilce": "Edremit",
+   "adres": "Soğanyemez Mah. Menderes Bulvarı No:34/A",
+   "enlem": 39.59215,
+   "boylam": 27.0198
+  },
+  {
+   "il": "Ankara",
+   "ad": "Bahçelievler",
+   "ilce": "Çankaya",
+   "adres": "Aşkabat Caddesi No:46/D",
+   "enlem": 39.92057,
+   "boylam": 32.82439
+  },
+  {
+   "il": "Ankara",
+   "ad": "Cebeci",
+   "ilce": "Çankaya",
+   "adres": "Cemal Gürsel Caddesi No:93/A",
+   "enlem": 39.93172,
+   "boylam": 32.87413
+  },
+  {
+   "il": "Ankara",
+   "ad": "Güvenpark",
+   "ilce": "Çankaya",
+   "adres": "Kızılay Mahallesi Milli Müdafaa Caddesi No:12/A",
+   "enlem": 39.91981,
+   "boylam": 32.85236
+  },
+  {
+   "il": "Ankara",
+   "ad": "Kızılay 1",
+   "ilce": "Çankaya",
+   "adres": "Atatürk Bulvarı No:89/87",
+   "enlem": 39.9217,
+   "boylam": 32.85208
+  },
+  {
+   "il": "Ankara",
+   "ad": "Kızılay 2",
+   "ilce": "Çankaya",
+   "adres": "Kızılay Mah. Atatürk Bulvarı No:80/B",
+   "enlem": 39.92352,
+   "boylam": 32.85361
+  },
+  {
+   "il": "Ankara",
+   "ad": "Tunalı Hilmi",
+   "ilce": "Çankaya",
+   "adres": "Remzi Oğuz Arık Mahallesi Tunalı Hilmi Caddesi 80/B",
+   "enlem": 39.9067,
+   "boylam": 32.85877
+  },
+  {
+   "il": "Antalya",
+   "ad": "Güllük",
+   "ilce": "Muratpaşa",
+   "adres": "Deniz, Anafartalar Caddesi No:17 D:16",
+   "enlem": 36.88753,
+   "boylam": 30.69687
+  },
+  {
+   "il": "Antalya",
+   "ad": "Kapalıyol",
+   "ilce": "Muratpaşa",
+   "adres": "Şarampol Caddesi No:77",
+   "enlem": 36.8904,
+   "boylam": 30.70145
+  },
+  {
+   "il": "Antalya",
+   "ad": "Konyaaltı",
+   "ilce": "Konyaaltı",
+   "adres": "Gürsu Mah. Gazi Mustafa Kemal Bul. No:63A",
+   "enlem": 36.86931,
+   "boylam": 30.62961
+  },
+  {
+   "il": "Antalya",
+   "ad": "Kültür",
+   "ilce": "Kepez",
+   "adres": "Gülveren, Terra Manzara Sitesi, 75. Yıl Cd. A5 Blok No:103",
+   "enlem": 36.90362,
+   "boylam": 30.65156
+  },
+  {
+   "il": "Antalya",
+   "ad": "Lara",
+   "ilce": "Muratpaşa",
+   "adres": "Fener, Tekelioğlu Cd. 49B",
+   "enlem": 36.85256,
+   "boylam": 30.75485
+  },
+  {
+   "il": "Antalya",
+   "ad": "Üçkapılar",
+   "ilce": "Muratpaşa",
+   "adres": "Haşimişcan Mahallesi Atatürk Caddesi & 1291. Sokak No:2/1",
+   "enlem": 36.88469,
+   "boylam": 30.7092
+  },
+  {
+   "il": "Samsun",
+   "ad": "Atakum",
+   "ilce": "Atakum",
+   "adres": "Cumhuriyet, Alparslan Blv. No:20/B",
+   "enlem": 41.33474,
+   "boylam": 36.27162
+  },
+  {
+   "il": "Samsun",
+   "ad": "Atakum Denizevler",
+   "ilce": "Atakum",
+   "adres": "Denizevleri, Atatürk Bl. No:44/B",
+   "enlem": 41.32599,
+   "boylam": 36.3033
+  },
+  {
+   "il": "Samsun",
+   "ad": "Samsun 1",
+   "ilce": "İlkadım",
+   "adres": "İstiklal Caddesi No:142/26",
+   "enlem": 41.28101,
+   "boylam": 36.33839
+  },
+  {
+   "il": "Samsun",
+   "ad": "Samsun 2 Bahçelievler",
+   "ilce": "İlkadım",
+   "adres": "İstiklal Caddesi No:170 D:22",
+   "enlem": 41.27964,
+   "boylam": 36.34062
+  },
+  {
+   "il": "Denizli",
+   "ad": "Denizli 1",
+   "ilce": "Merkezefendi",
+   "adres": "15 Mayıs Mahallesi Gazi Mustafa Kemal Bulvarı 122/C",
+   "enlem": 37.7764,
+   "boylam": 29.08337
+  },
+  {
+   "il": "Denizli",
+   "ad": "Denizli 2",
+   "ilce": "Merkezefendi",
+   "adres": "Çınarlı Meydanı, Altıntop Mahallesi 854 Sokak No:1",
+   "enlem": 37.77282,
+   "boylam": 29.08468
+  },
+  {
+   "il": "Denizli",
+   "ad": "Denizli 3",
+   "ilce": "Merkezefendi",
+   "adres": "29 Ekim Bulvarı No:182BB",
+   "enlem": 37.77876,
+   "boylam": 29.03729
+  },
+  {
+   "il": "Denizli",
+   "ad": "Denizli Migros",
+   "ilce": "Pamukkale",
+   "adres": "Mehmetçik Mahallesi Doğan Demircioğlu Caddesi No:2 Migros Forum Çamlık",
+   "enlem": 37.75356,
+   "boylam": 29.08726
+  },
+  {
+   "il": "Bursa",
+   "ad": "Bursa",
+   "ilce": "Osmangazi",
+   "adres": "Hocaalizade Mah. Atatürk Caddesi No:21",
+   "enlem": 40.18201,
+   "boylam": 29.06567
+  },
+  {
+   "il": "Bursa",
+   "ad": "Bursa Yıldırım",
+   "ilce": "Yıldırım",
+   "adres": "Anadolu, Ankara Yolu Cd. No:121C A Blok",
+   "enlem": 40.19185,
+   "boylam": 29.09194
+  },
+  {
+   "il": "Bursa",
+   "ad": "Nilüfer Özlüce",
+   "ilce": "Nilüfer",
+   "adres": "Muammer Aksoy Cad. No:81/B",
+   "enlem": 40.22815,
+   "boylam": 28.9239
+  },
+  {
+   "il": "Bursa",
+   "ad": "Yıldırım",
+   "ilce": "Yıldırım",
+   "adres": "Anadolu Mah. Ankarayolu Cad. A Blok No:121C",
+   "enlem": 40.19184,
+   "boylam": 29.09199
+  },
+  {
+   "il": "Eskişehir",
+   "ad": "Eskişehir 1",
+   "ilce": "Odunpazarı",
+   "adres": "Hamamyolu Caddesi No:3",
+   "enlem": 39.77432,
+   "boylam": 30.51694
+  },
+  {
+   "il": "Eskişehir",
+   "ad": "Eskişehir 2",
+   "ilce": "Tepebaşı",
+   "adres": "İsmet İnönü Caddesi No:18",
+   "enlem": 39.77751,
+   "boylam": 30.51478
+  },
+  {
+   "il": "Afyonkarahisar",
+   "ad": "Afyon",
+   "ilce": "Merkez",
+   "adres": "Dumlupınar Mah. Milli Egemenlik Caddesi No:7/B",
+   "enlem": 38.7592,
+   "boylam": 30.5302
+  },
+  {
+   "il": "Afyonkarahisar",
+   "ad": "AfyonPark",
+   "ilce": "Merkez",
+   "adres": "Park Afyon AVM, Mareşal Fevzi Çakmak Bulvarı 2096 Sok. No:2",
+   "enlem": 38.75428,
+   "boylam": 30.55311
+  },
+  {
+   "il": "Kütahya",
+   "ad": "Kütahya 1",
+   "ilce": "Merkez",
+   "adres": "Cumhuriyet Caddesi No:48",
+   "enlem": 39.41834,
+   "boylam": 29.97952
+  },
+  {
+   "il": "Kütahya",
+   "ad": "Kütahya 2",
+   "ilce": "Merkez",
+   "adres": "Atatürk Bulvarı No:17/B",
+   "enlem": 39.41834,
+   "boylam": 29.97952
+  },
+  {
+   "il": "Kırklareli",
+   "ad": "Kırklareli",
+   "ilce": "Merkez",
+   "adres": "Karacaibrahim Mahallesi Fevzi Çakmak Bulvarı No:12",
+   "enlem": 41.73456,
+   "boylam": 27.22293
+  },
+  {
+   "il": "Tekirdağ",
+   "ad": "Tekirdağ",
+   "ilce": "Merkez",
+   "adres": "Hükümet Cd. No:120",
+   "enlem": 40.99695,
+   "boylam": 27.50479
+  },
+  {
+   "il": "Uşak",
+   "ad": "Uşak",
+   "ilce": "Merkez",
+   "adres": "İsmetpaşa Caddesi No:71/B",
+   "enlem": 38.67435,
+   "boylam": 29.40378
+  },
+  {
+   "il": "Edirne",
+   "ad": "Edirne",
+   "ilce": "Merkez",
+   "adres": "Çilingirler Cad. No:23",
+   "enlem": 41.67529,
+   "boylam": 26.55445
+  },
+  {
+   "il": "Sakarya",
+   "ad": "Adapazarı",
+   "ilce": "Adapazarı",
+   "adres": "Tığcılar Mahallesi, Atatürk Blv. No:83",
+   "enlem": 40.77383,
+   "boylam": 30.40109
+  }
+ ]
+}

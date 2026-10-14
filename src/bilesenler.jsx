@@ -5,14 +5,8 @@ import { useOturum, PANEL } from './oturum.jsx';
 export function Logo({ acik = false }) {
   return (
     <Link to="/" className={`logo ${acik ? 'logo--acik' : ''}`} aria-label="Tuğba Yanımda ana sayfa">
-      <svg viewBox="0 0 64 64" aria-hidden="true">
-        <rect width="64" height="64" rx="16" fill="currentColor" />
-        <path d="M32 13c-9 0-15 8-15 18 0 12 9 20 15 20s15-8 15-20c0-10-6-18-15-18z" fill="#F2B33D" />
-        <path d="M32 19v26" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-      </svg>
-      <span>
-        <strong>Tuğba</strong> Yanımda
-      </span>
+      <img src="/tugba-logo.webp" alt="Tuğba" width="78" height="40" />
+      <span>Yanımda</span>
     </Link>
   );
 }
@@ -58,7 +52,7 @@ export function Alt() {
   );
 }
 
-const ROL_ADI = { musteri: 'Üye', magaza: 'Mağaza', yonetici: 'Genel Merkez' };
+const ROL_ADI = { musteri: 'Üye', kasiyer: 'Kasiyer', mudur: 'Mağaza müdürü', yonetici: 'Genel Merkez' };
 
 export function PanelCercevesi({ baslik, children }) {
   const { kullanici, cikis } = useOturum();
@@ -69,7 +63,7 @@ export function PanelCercevesi({ baslik, children }) {
         <div className="kap panel__ust-ic">
           <Logo acik />
           <div className="panel__kim">
-            <span className="panel__rol">{kullanici.magazaAdi || ROL_ADI[kullanici.rol]}</span>
+            <span className="panel__rol">{ROL_ADI[kullanici.rol]}{kullanici.magazaAdi ? `, ${kullanici.magazaAdi}` : ''}</span>
             <span className="panel__ad">{kullanici.ad} {kullanici.soyad}</span>
           </div>
           <button
@@ -125,7 +119,7 @@ export function PuanHalkasi({ puan, hedef }) {
   const R = 42;
   const C = 2 * Math.PI * R;
   return (
-    <svg viewBox="0 0 100 100" className="halka" role="img" aria-label={`${puan} puan, kupona ${Math.max(0, hedef - puan)} puan kaldı`}>
+    <svg viewBox="0 0 100 100" className="halka" role="img" aria-label={`${puan} puan, indirime ${Math.max(0, hedef - puan)} puan kaldı`}>
       <circle cx="50" cy="50" r={R} className="halka__iz" />
       <circle cx="50" cy="50" r={R} className="halka__dolu" strokeDasharray={`${C * oran} ${C}`} transform="rotate(-90 50 50)" />
     </svg>

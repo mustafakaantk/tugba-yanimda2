@@ -16,6 +16,15 @@ const telefonBicimle = (v) => {
   return p.join(' ');
 };
 
+// Mağazaları il adına göre Türkçe sıralayıp gruplar
+const illereGore = (magazalar) => {
+  const gruplar = new Map();
+  [...magazalar]
+    .sort((a, b) => a.il.localeCompare(b.il, 'tr') || a.ad.localeCompare(b.ad, 'tr'))
+    .forEach((m) => gruplar.set(m.il, [...(gruplar.get(m.il) || []), m]));
+  return [...gruplar];
+};
+
 export default function Kayit() {
   const { yenile } = useOturum();
   const git = useNavigate();
@@ -90,8 +99,12 @@ export default function Kayit() {
             <span>En sık uğradığın mağaza <em>(isteğe bağlı)</em></span>
             <select value={f.magazaId} onChange={degistir('magazaId')}>
               <option value="">Seçmek istemiyorum</option>
-              {magazalar.map((m) => (
-                <option key={m.id} value={m.id}>{m.il} – {m.ad}</option>
+              {illereGore(magazalar).map(([il, liste]) => (
+                <optgroup key={il} label={il}>
+                  {liste.map((m) => (
+                    <option key={m.id} value={m.id}>{m.ad}{m.ilce && m.ilce !== m.ad ? ` (${m.ilce})` : ''}</option>
+                  ))}
+                </optgroup>
               ))}
             </select>
           </label>

@@ -4,7 +4,7 @@ import { SignJWT, jwtVerify } from 'jose';
 import { tekSatir } from './db.mts';
 import { UygulamaHatasi } from './yardimci.mts';
 
-export type Rol = 'musteri' | 'magaza' | 'yonetici';
+export type Rol = 'musteri' | 'kasiyer' | 'mudur' | 'yonetici';
 export interface Oturum {
   id: number;
   rol: Rol;
@@ -14,7 +14,8 @@ export interface Oturum {
 const CEREZ = 'ty_oturum';
 const SURE: Record<Rol, number> = {
   musteri: 60 * 60 * 24 * 30, // 30 gün
-  magaza: 60 * 60 * 14,       // bir vardiya
+  kasiyer: 60 * 60 * 14,      // bir vardiya
+  mudur: 60 * 60 * 14,
   yonetici: 60 * 60 * 8,      // 8 saat
 };
 
@@ -78,6 +79,7 @@ export async function yetkiIste(req: Request, ...roller: Rol[]): Promise<Oturum>
 
 export const PANEL: Record<Rol, string> = {
   musteri: '/musteri',
-  magaza: '/magaza',
+  kasiyer: '/kasa',
+  mudur: '/magaza',
   yonetici: '/yonetim',
 };
