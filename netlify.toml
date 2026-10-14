@@ -1,0 +1,59 @@
+[build]
+  command   = "npm run build"
+  publish   = "dist"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[dev]
+  framework = "vite"
+  targetPort = 5173
+
+# Tek sayfa uygulaması: panel adresleri index.html'e yönlenir.
+# Bilinçli olarak "/*" kullanılmıyor; böylece /api/* adresleri her zaman fonksiyonlara gider.
+# Yeni bir sayfa adresi eklenirse buraya da eklenmelidir.
+[[redirects]]
+  from = "/giris"
+  to = "/index.html"
+  status = 200
+[[redirects]]
+  from = "/kayit"
+  to = "/index.html"
+  status = 200
+[[redirects]]
+  from = "/kvkk"
+  to = "/index.html"
+  status = 200
+[[redirects]]
+  from = "/musteri"
+  to = "/index.html"
+  status = 200
+[[redirects]]
+  from = "/musteri/*"
+  to = "/index.html"
+  status = 200
+[[redirects]]
+  from = "/magaza"
+  to = "/index.html"
+  status = 200
+[[redirects]]
+  from = "/magaza/*"
+  to = "/index.html"
+  status = 200
+[[redirects]]
+  from = "/yonetim"
+  to = "/index.html"
+  status = 200
+[[redirects]]
+  from = "/yonetim/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options        = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy        = "strict-origin-when-cross-origin"
+    Permissions-Policy     = "camera=(self), microphone=(), geolocation=()"
