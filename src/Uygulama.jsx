@@ -1,4 +1,5 @@
-import { Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { KorumaliSayfa } from './oturum.jsx';
 import AnaSayfa from './sayfalar/AnaSayfa.jsx';
 import Giris from './sayfalar/Giris.jsx';
@@ -10,6 +11,12 @@ import MagazaPaneli from './sayfalar/MagazaPaneli.jsx';
 import YonetimPaneli from './sayfalar/YonetimPaneli.jsx';
 
 export default function Uygulama() {
+  // Sayfa değişince en üste dön (#nasil gibi bağlantılar hariç)
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (!hash) window.scrollTo(0, 0);
+  }, [pathname, hash]);
+
   return (
     <Routes>
       <Route path="/" element={<AnaSayfa />} />

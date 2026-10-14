@@ -96,7 +96,7 @@ export default function Kayit() {
             <small>Doğum gününde sürpriz puan için.</small>
           </label>
           <label className="alan alan--genis">
-            <span>En sık uğradığın mağaza <em>(isteğe bağlı)</em></span>
+            <span>En sık uğradığın mağaza <em>(isteğe bağlı, pilot mağazalar)</em></span>
             <select value={f.magazaId} onChange={degistir('magazaId')}>
               <option value="">Seçmek istemiyorum</option>
               {illereGore(magazalar).map(([il, liste]) => (

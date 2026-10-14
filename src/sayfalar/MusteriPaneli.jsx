@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { api, sayi } from '../api.js';
 import { DesenKare, PanelCercevesi, PuanHalkasi } from '../bilesenler.jsx';
 import { useOturum } from '../oturum.jsx';
@@ -58,6 +58,64 @@ export default function MusteriPaneli() {
           <p className="puan-kutu__dip">{sayi(kullanici.alisverisSayisi)} alışveriş yaptın.</p>
         </section>
       </div>
+      <HesapSil puan={kullanici.puan} />
     </PanelCercevesi>
+  );
+}
+
+// KVKK: müşteri hesabını şifresiyle onaylayarak kalıcı olarak siler.
+function HesapSil({ puan }) {
+  const { yenile } = useOturum();
+  const git = useNavigate();
+  const [acik, setAcik] = useState(false);
+  const [sifre, setSifre] = useState('');
+  const [hata, setHata] = useState('');
+  const [siliniyor, setSiliniyor] = useState(false);
+
+  const sil = async (e) => {
+    e.preventDefault();
+    setHata('');
+    setSiliniyor(true);
+    try {
+      await api('/hesap/sil', { yontem: 'POST', veri: { sifre } });
+      // Önce ana sayfaya geç, sonra oturumu tazele; aksi halde korumalı sayfa giriş ekranına yönlendirir
+      git('/', { replace: true, state: { hesapSilindi: true } });
+      yenile();
+    } catch (h) {
+      setHata(h.message);
+      setSiliniyor(false);
+    }
+  };
+
+  return (
+    <section className="hesap-sil" aria-labelledby="hesap-sil-baslik">
+      <h2 id="hesap-sil-baslik">Hesabımı sil</h2>
+      {!acik ? (
+        <>
+          <p>Hesabını sildiğinde kişisel bilgilerin kalıcı olarak silinir ve bu işlem geri alınamaz.</p>
+          <button type="button" className="dugme dugme--tehlike" onClick={() => setAcik(true)}>Hesabımı sil</button>
+        </>
+      ) : (
+        <form onSubmit={sil} noValidate>
+          <p className="uyari">
+            {puan > 0 ? `${sayi(puan)} puanın da silinecek. ` : ''}Adın, telefon numaran ve alışveriş geçmişinle
+            bağlantın kaldırılır. Bu işlem geri alınamaz.
+          </p>
+          <label className="alan">
+            <span>Onaylamak için şifreni gir</span>
+            <input type="password" value={sifre} onChange={(e) => setSifre(e.target.value)} autoComplete="current-password" required />
+          </label>
+          {hata && <p className="uyari" role="alert">{hata}</p>}
+          <div className="hesap-sil__eylem">
+            <button className="dugme dugme--tehlike" disabled={siliniyor || !sifre}>
+              {siliniyor ? 'Hesabın siliniyor…' : 'Hesabımı kalıcı olarak sil'}
+            </button>
+            <button type="button" className="dugme dugme--cizgi" onClick={() => { setAcik(false); setSifre(''); setHata(''); }}>
+              Vazgeç
+            </button>
+          </div>
+        </form>
+      )}
+    </section>
   );
 }

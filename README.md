@@ -15,6 +15,7 @@ rol ayrımı, program kuralları (1 TL = 1 puan, 200 puan = %5, günde 1 kez, SM
 | 0 | Veritabanı şeması, demo verisi | ✅ |
 | 1 | Tanıtım sitesi, kayıt, giriş, rol yönlendirmesi | ✅ |
 | 1.5 | Eski prototipten veri, marka ve rol aktarımı | ✅ |
+| 1.6 | 5 mağazalık pilot (program yalnızca pilot mağazalarda), KVKK hesap silme | ✅ |
 | 2 | Müşteri paneli: gerçek QR, puan geçmişi, favori mağaza/ürün, ürün kataloğu | ⏳ |
 | 3 | Kasa ekranı: QR/numara ile puan kazandırma, SMS koduyla puan kullandırma | ⏳ |
 | 4 | Müdür ve Genel Merkez: raporlar, duyuru/indirim onay akışı, bildirimler, ayarlar | ⏳ |
@@ -28,6 +29,20 @@ rol ayrımı, program kuralları (1 TL = 1 puan, 200 puan = %5, günde 1 kez, SM
 | Kasiyer | `alsancak02`, `kadikoy02`, `bakirkoy02`, `kizilay02`, `nilufer02` |
 | Mağaza müdürü | `alsancak01`, `kadikoy01`, `bakirkoy01`, `kizilay01`, `nilufer01` |
 | Genel Merkez | `yonetim` |
+
+## Pilot
+
+Program şu an yalnızca `magazalar.program_aktif = TRUE` olan 5 mağazada çalışır:
+Kadıköy, Bakırköy Çarşı (İstanbul), Kızılay 1 (Ankara), Alsancak (İzmir), Nilüfer Özlüce (Bursa).
+Kayıtta yalnızca bu mağazalar seçilebilir; pilot dışı mağaza personeli giriş yapamaz.
+Faz 4'te Genel Merkez bu listeyi panelden değiştirebilecek.
+
+## Hesap silme (KVKK)
+
+Müşteri panelinin altındaki "Hesabımı sil" bölümünden, şifreyle onaylanarak yapılır. Kişisel veriler
+anonimleştirilir, kalan puan sıfırlanır; satış kayıtları kimliksiz olarak muhasebe için kalır.
+Aynı numara yeniden üye olabilir ama hoş geldin puanı ikinci kez verilmez (numaranın yalnızca
+geri çevrilemeyen özeti saklanır).
 
 ## Klasör yapısı
 

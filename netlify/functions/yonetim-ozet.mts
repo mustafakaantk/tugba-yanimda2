@@ -21,6 +21,7 @@ export default guvenli(async (req) => {
      GROUP BY m.id ORDER BY ciro DESC LIMIT 15`);
   const sayilar = await tekSatir(`
     SELECT (SELECT COUNT(*) FROM magazalar WHERE aktif) AS magaza_sayisi,
+           (SELECT COUNT(*) FROM magazalar WHERE aktif AND program_aktif) AS pilot_magaza,
            (SELECT COUNT(DISTINCT magaza_id) FROM satislar) AS satisli_magaza,
            (SELECT COUNT(*) FROM urunler WHERE aktif) AS urun_sayisi`);
   return json({ genel, magazalar, sayilar });

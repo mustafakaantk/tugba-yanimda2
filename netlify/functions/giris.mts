@@ -29,9 +29,10 @@ export default guvenli(async (req) => {
   }
 
   const k = await tekSatir<{
-    id: number; rol: Rol; sifre_hash: string; durum: string; ad: string; soyad: string; magaza_id: number | null; magaza_adi: string | null;
+    id: number; rol: Rol; sifre_hash: string; durum: string; ad: string; soyad: string;
+    magaza_id: number | null; magaza_adi: string | null; program_aktif: boolean | null;
   }>(
-    `SELECT k.id, k.rol, k.sifre_hash, k.durum, k.ad, k.soyad, k.magaza_id, m.ad AS magaza_adi
+    `SELECT k.id, k.rol, k.sifre_hash, k.durum, k.ad, k.soyad, k.magaza_id, m.ad AS magaza_adi, m.program_aktif
        FROM kullanicilar k LEFT JOIN magazalar m ON m.id = k.magaza_id
       WHERE ${telefon ? 'k.telefon = $1' : 'LOWER(k.kullanici_adi) = $1'}`,
     [hedef]);
@@ -43,6 +44,9 @@ export default guvenli(async (req) => {
   }
   if (k.durum !== 'aktif') {
     throw new UygulamaHatasi(403, 'Hesabınız pasif durumda. Mağazamızla iletişime geçin.');
+  }
+  if ((k.rol === 'kasiyer' || k.rol === 'mudur') && !k.program_aktif) {
+    throw new UygulamaHatasi(403, 'Mağazanız Tuğba Yanımda programına henüz dahil değil.');
   }
 
   await sorgu('UPDATE kullanicilar SET son_giris = NOW() WHERE id = $1', [k.id]);

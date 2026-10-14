@@ -2,12 +2,14 @@
 // Kullanıcı + müşteri profili + kişisel QR + hoş geldin puanı tek işlemde oluşturulur.
 import type { Config } from '@netlify/functions';
 import bcrypt from 'bcryptjs';
-import { randomInt } from 'node:crypto';
+import { createHash, randomInt } from 'node:crypto';
 import { islem, tekSatir } from '../lib/db.mts';
 import { oturumAc, PANEL } from '../lib/oturum.mts';
 import { guvenli, govde, json, kaydet, metin, telefonDuzelt, UygulamaHatasi } from '../lib/yardimci.mts';
 
 const ALFABE = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // karışan karakterler (0/O, 1/I) yok
+// Telefonun geri çevrilemeyen özeti (migration 4 ile aynı formül)
+const telefonOzeti = (t: string) => createHash('sha256').update(`tugba-yanimda:${t}`, 'utf8').digest('hex');
 const qrKoduUret = () => 'TY-' + Array.from({ length: 10 }, () => ALFABE[randomInt(ALFABE.length)]).join('');
 
 interface KayitIstegi {
@@ -45,8 +47,8 @@ export default guvenli(async (req) => {
   if (mevcut) throw new UygulamaHatasi(409, 'Bu telefon numarasıyla zaten bir üyelik var. Giriş yapmayı deneyin.');
 
   if (magazaId) {
-    const mg = await tekSatir('SELECT 1 FROM magazalar WHERE id = $1 AND aktif', [magazaId]);
-    if (!mg) throw new UygulamaHatasi(400, 'Seçilen mağaza bulunamadı.');
+    const mg = await tekSatir('SELECT 1 FROM magazalar WHERE id = $1 AND aktif AND program_aktif', [magazaId]);
+    if (!mg) throw new UygulamaHatasi(400, 'Seçilen mağaza programa dahil değil.');
   }
 
   const sifreHash = await bcrypt.hash(sifre, 10);
@@ -66,12 +68,16 @@ export default guvenli(async (req) => {
        VALUES ($1, $2, $3, $4, $5, (SELECT il FROM magazalar WHERE id = $5), 'web', NOW(), $6, CASE WHEN $6 THEN NOW() END)`,
       [k.id, qr, ePosta, dogum, magazaId, g.etk === true]);
     const [hp] = await s(`SELECT deger::int AS puan FROM ayarlar WHERE anahtar = 'hosgeldin_puani'`);
-    if (hp?.puan > 0) {
+    // Bu numara daha önce hoş geldin puanı aldıysa (hesap silinip yeniden açıldıysa) tekrar verilmez
+    const ilkKez = (await s(
+      'INSERT INTO hosgeldin_verilen (telefon_ozeti) VALUES ($1) ON CONFLICT DO NOTHING RETURNING 1',
+      [telefonOzeti(telefon)])).length > 0;
+    if (ilkKez && hp?.puan > 0) {
       await s(
         `INSERT INTO puan_hareketleri (musteri_id, tur, puan, aciklama) VALUES ($1, 'kazanim', $2, 'Hoş geldin puanı')`,
         [k.id, hp.puan]);
     }
-    return { id: k.id as number, hosgeldin: (hp?.puan ?? 0) as number };
+    return { id: k.id as number, hosgeldin: ilkKez ? ((hp?.puan ?? 0) as number) : 0 };
   });
 
   await kaydet('kayit_olusturuldu', { kullaniciId: yeni.id, hedef: telefon, detay: { etk: g.etk === true }, req });

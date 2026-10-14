@@ -30,7 +30,7 @@ export default function YonetimPaneli() {
       <section className="tablo-kutu">
         <h2>En çok ciro yapan mağazalar</h2>
         <p className="panel__dip" style={{ marginTop: 0 }}>
-          {sayi(s.magaza_sayisi)} aktif mağazadan {sayi(s.satisli_magaza)} tanesinde Tuğba Yanımda satışı var. Katalogda {sayi(s.urun_sayisi)} ürün kayıtlı.
+          {sayi(s.magaza_sayisi)} mağazadan {sayi(s.pilot_magaza)} tanesi pilotta; {sayi(s.satisli_magaza)} mağazada Tuğba Yanımda satışı var. Katalogda {sayi(s.urun_sayisi)} ürün kayıtlı.
         </p>
         <table>
           <thead>

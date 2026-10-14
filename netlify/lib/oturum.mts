@@ -60,9 +60,12 @@ export async function oturumOku(req: Request): Promise<Oturum | null> {
     const { payload } = await jwtVerify(eslesme[1], await anahtar(), { algorithms: ['HS256'] });
     const id = Number(payload.sub);
     // Hesap pasife alındıysa token geçerli olsa bile erişim kesilir.
-    const k = await tekSatir<{ durum: string; rol: Rol; magaza_id: number | null }>(
-      'SELECT durum, rol, magaza_id FROM kullanicilar WHERE id = $1', [id]);
+    const k = await tekSatir<{ durum: string; rol: Rol; magaza_id: number | null; program_aktif: boolean | null }>(
+      `SELECT k.durum, k.rol, k.magaza_id, m.program_aktif
+         FROM kullanicilar k LEFT JOIN magazalar m ON m.id = k.magaza_id WHERE k.id = $1`, [id]);
     if (!k || k.durum !== 'aktif') return null;
+    // Mağaza pilottan çıkarılırsa o mağazanın personelinin açık oturumu da kapanır.
+    if ((k.rol === 'kasiyer' || k.rol === 'mudur') && !k.program_aktif) return null;
     return { id, rol: k.rol, magazaId: k.magaza_id };
   } catch {
     return null;

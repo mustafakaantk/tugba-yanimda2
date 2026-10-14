@@ -289,3 +289,13 @@ tbody th { font-weight: 600; }
 .puan-kutu__nasil strong { display: block; margin-bottom: .25rem; }
 .puan-kutu__nasil p { margin: 0; color: var(--findik-orta); }
 .kahraman__magaza { font-size: .9375rem; color: var(--findik-orta); margin-top: .35rem; }
+
+/* hesap silme */
+.hesap-sil { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--cizgi); max-width: 560px; }
+.hesap-sil h2 { font-size: 1.15rem; }
+.hesap-sil p { color: var(--findik-orta); font-size: .9375rem; }
+.hesap-sil .uyari { color: var(--hata); }
+.hesap-sil__eylem { display: flex; flex-wrap: wrap; gap: .6rem; }
+.dugme--tehlike { background: transparent; border-color: var(--hata); color: var(--hata); }
+.dugme--tehlike:hover:not(:disabled) { background: var(--hata); border-color: var(--hata); color: #fff; }
+.bilgi--ust { margin-top: 1.25rem; }

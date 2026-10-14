@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { api, sayi, tl } from '../api.js';
 import { Alt, DesenKare, PuanHalkasi, UstMenu } from '../bilesenler.jsx';
 
@@ -19,16 +19,20 @@ export default function AnaSayfa() {
     api('/program').then(setProgram).catch(() => setProgram(null));
   }, []);
   const k = { ...VARSAYILAN, ...(program?.kurallar || {}) };
+  const hesapSilindi = useLocation().state?.hesapSilindi;
 
   return (
     <>
       <UstMenu />
       <main>
-        <Kahraman k={k} magazaSayisi={program?.magazaSayisi} />
+        {hesapSilindi && (
+          <p className="kap bilgi bilgi--ust" role="status">Hesabın ve kişisel bilgilerin silindi. Seni yeniden aramızda görmekten mutluluk duyarız.</p>
+        )}
+        <Kahraman k={k} program={program} />
         <NasilCalisir k={k} />
         <Hesaplayici k={k} />
         {program?.kampanyalar?.length > 0 && <Kampanyalar liste={program.kampanyalar} />}
-        <Sorular k={k} magazaSayisi={program?.magazaSayisi} />
+        <Sorular k={k} program={program} />
         <section className="kapanis">
           <div className="kap kapanis__ic">
             <h2>Bir sonraki alışverişinden itibaren puan kazan.</h2>
@@ -42,7 +46,15 @@ export default function AnaSayfa() {
   );
 }
 
-function Kahraman({ k, magazaSayisi }) {
+// "Alsancak (İzmir), Kadıköy (İstanbul) ve ..." biçiminde pilot mağaza listesi
+const magazaListesi = (magazalar = []) => {
+  const adlar = [...magazalar]
+    .sort((a, b) => a.il.localeCompare(b.il, 'tr') || a.ad.localeCompare(b.ad, 'tr'))
+    .map((m) => `${m.ad} (${m.il})`);
+  return adlar.length > 1 ? `${adlar.slice(0, -1).join(', ')} ve ${adlar.at(-1)}` : adlar[0] || '';
+};
+
+function Kahraman({ k, program }) {
   const ornekPuan = Math.round(k.kupon_puan_bedeli * 0.82);
   return (
     <section className="kahraman">
@@ -62,8 +74,12 @@ function Kahraman({ k, magazaSayisi }) {
           <p className="kahraman__hediye">
             Üye olduğun anda hesabına <strong>{k.hosgeldin_puani} hoş geldin puanı</strong> yüklenir.
           </p>
-          {magazaSayisi > 0 && (
-            <p className="kahraman__magaza">{sayi(magazaSayisi)} Tuğba Kuruyemiş mağazasında geçerli.</p>
+          {program?.magazaSayisi > 0 && (
+            <p className="kahraman__magaza">
+              {program.pilot
+                ? `Pilot döneminde ${sayi(program.magazaSayisi)} mağazada geçerli: ${magazaListesi(program.magazalar)}.`
+                : `${sayi(program.magazaSayisi)} Tuğba Kuruyemiş mağazasında geçerli.`}
+            </p>
           )}
         </div>
 
@@ -198,13 +214,16 @@ function Kampanyalar({ liste }) {
   );
 }
 
-function Sorular({ k, magazaSayisi }) {
+function Sorular({ k, program }) {
   const sorular = [
     ['Uygulama indirmem gerekiyor mu?', 'Hayır. Bu siteden üye olup panelini telefonunun ana ekranına ekleyebilirsin. Telefonun yanında değilse kasada cep numaranı söylemen de yeterli.'],
     ['Puanlarım ne zaman silinir?', k.puan_gecerlilik_ay > 0 ? `Her puan, kazanıldığı tarihten itibaren ${k.puan_gecerlilik_ay} ay geçerlidir.` : 'Puanların süresiz geçerlidir.'],
     ['Puanımı nasıl kullanırım?', `${sayi(k.kupon_puan_bedeli)} puanın olduğunda kasada “puanımı kullanmak istiyorum” de. Telefonuna tek kullanımlık bir kod gelir; kodu kasiyere söylediğinde ${sayi(k.kupon_puan_bedeli)} puan düşülür ve alışverişine %${k.kupon_indirim_orani} indirim uygulanır. Günde ${k.kupon_gunluk_limit} kez kullanılabilir.`],
     ['Puanlarımı başkası kullanabilir mi?', 'Hayır. Puan kullanımı yalnızca senin telefonuna gelen tek kullanımlık kodla onaylanır.'],
-    ['Hangi mağazalarda geçerli?', magazaSayisi ? `Türkiye genelindeki ${sayi(magazaSayisi)} Tuğba Kuruyemiş mağazasının hepsinde puan kazanıp kullanabilirsin.` : 'Tüm Tuğba Kuruyemiş mağazalarında puan kazanıp kullanabilirsin.'],
+    ['Hangi mağazalarda geçerli?', program?.pilot
+      ? `Program şu an pilot olarak ${sayi(program.magazaSayisi)} mağazamızda çalışıyor: ${magazaListesi(program.magazalar)}. Pilot sonrasında ${sayi(program.toplamMagaza)} mağazamızın tümüne yayılacak.`
+      : 'Tüm Tuğba Kuruyemiş mağazalarında puan kazanıp kullanabilirsin.'],
+    ['Hesabımı silebilir miyim?', 'Evet. Panelindeki “Hesabımı sil” bölümünden şifrenle onaylayarak hesabını kalıcı olarak silebilirsin. Kişisel bilgilerin silinir, kalan puanların da sıfırlanır.'],
     ['Alışveriş tutarım kimlerle paylaşılıyor?', 'Bilgilerin yalnızca Tuğba Kuruyemiş sadakat programı için kullanılır, üçüncü kişilere satılmaz. Ayrıntılar KVKK Aydınlatma Metni’nde.'],
     ['İade yaparsam ne olur?', 'İade edilen alışverişten kazandığın puanlar hesabından geri düşülür.'],
   ];

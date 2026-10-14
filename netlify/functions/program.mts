@@ -9,14 +9,20 @@ export default guvenli(async () => {
     sorgu<{ anahtar: string; deger: string }>(
       `SELECT anahtar, deger FROM ayarlar WHERE anahtar IN
         ('puan_icin_tutar','kupon_puan_bedeli','kupon_indirim_orani','kupon_gunluk_limit','puan_gecerlilik_ay','hosgeldin_puani')`),
-    sorgu('SELECT id, ad, il, ilce FROM magazalar WHERE aktif'),
+    sorgu('SELECT id, ad, il, ilce FROM magazalar WHERE aktif AND program_aktif'),
     sorgu(`SELECT id, baslik, metin, baslangic, bitis, magaza_id FROM kampanyalar
             WHERE aktif AND magaza_id IS NULL AND bitis >= CURRENT_DATE ORDER BY baslangic LIMIT 6`),
-    sorgu(`SELECT (SELECT COUNT(*) FROM magazalar WHERE aktif) AS magaza_sayisi`),
+    sorgu(`SELECT (SELECT COUNT(*) FROM magazalar WHERE aktif AND program_aktif) AS magaza_sayisi,
+                   (SELECT COUNT(*) FROM magazalar WHERE aktif) AS toplam_magaza`),
   ]);
   const kurallar = Object.fromEntries(ayar.map((a) => [a.anahtar, Number(a.deger)]));
   return json(
-    { kurallar, magazalar, kampanyalar, magazaSayisi: Number(sayilar[0]?.magaza_sayisi ?? 0) },
+    {
+      kurallar, magazalar, kampanyalar,
+      magazaSayisi: Number(sayilar[0]?.magaza_sayisi ?? 0),   // programın geçerli olduğu (pilot) mağazalar
+      toplamMagaza: Number(sayilar[0]?.toplam_magaza ?? 0),
+      pilot: Number(sayilar[0]?.magaza_sayisi ?? 0) < Number(sayilar[0]?.toplam_magaza ?? 0),
+    },
     200,
     { 'Cache-Control': 'public, max-age=60' });
 });
